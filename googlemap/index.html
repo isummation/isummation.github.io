@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css" />
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+        <title>Google Map</title>
+        <style>
+            html, body{
+                font-family: 'Open Sans', sans-serif !important;
+            }
+            #map{
+                height: 400px;
+                width: 100%;
+            }
+            .bg-light{
+                background: #efefef !important;
+            }
+        </style>
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-md navbar-light bg-light">
+            <div class="container">
+                <a class="navbar-brand" href="javascript:void(0)">
+                    <img src="http://www.isummation.com/isummation/assets/Image/isummationlogo.png" alt="iSummation Technologies Pvt Ltd">
+                </a>
+                <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active">
+                            <h2>Google map not working in jQuery-Ui tab.</h2>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <br>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div id="tabs">
+                        <ul>
+                            <li><a href="#tabs-1">First Tab</a></li>
+                            <li><a href="#tabs-2">Google Map</a></li>
+                        </ul>
+                        <div id="tabs-1">
+                            <p>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit deleniti dicta quos expedita impedit repudiandae vitae, eligendi dolores molestiae quaerat ab nemo quisquam minus laborum nihil quam. Cupiditate modi cum molestiae rerum hic omnis quo atque iure amet reprehenderit ab expedita corrupti laboriosam, dolores perspiciatis maiores quod inventore ex, quis animi neque ipsa, quidem magni facere. Ab illum quaerat, nostrum porro dolorem molestiae rerum est nobis eum enim consectetur, commodi atque voluptates? Consequuntur exercitationem in amet iure vero labore fugit, dolorem dolor. Natus nisi asperiores sit officia ea ex sint, quisquam libero suscipit odio. Laudantium, rem veniam officiis voluptatibus asperiores enim explicabo repellendus ab, molestias doloremque dolor blanditiis at quisquam! Culpa rerum assumenda aperiam similique sed minus architecto, eveniet asperiores laboriosam ducimus suscipit unde quaerat fugiat quasi inventore ut praesentium aut autem delectus harum laborum, quo necessitatibus atque ratione! Minima cupiditate eum hic et quibusdam nostrum itaque doloremque iste, sint beatae odio voluptatum accusamus, perferendis perspiciatis sit magni tempora illo at, aut accusantium? Minima, voluptate dolor cum dolore nemo excepturi sunt blanditiis distinctio accusamus, alias dolores cupiditate ratione modi voluptas, possimus illum eum neque quo earum assumenda consequuntur provident repellat! Impedit, reprehenderit? Rerum quisquam non dignissimos doloribus, cupiditate omnis harum.
+                            </p>
+                        </div>
+                        <div id="tabs-2">
+                            <div id="map"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBSlad62QsaPuplnhpfNFyThBptceUJtso&callback=initMap"></script>
+        <script>
+            var mapCenter = {lat: 23.040315, lng: 72.513364};
+            jQuery(function(){
+                jQuery("#tabs").tabs();
+            })
+            function initMap() {
+                window.map = new google.maps.Map(document.getElementById('map'), {
+                    zoom: 18,
+                    center: mapCenter
+                });
+                var marker = new google.maps.Marker({
+                    position: mapCenter,
+                    map: map,
+                    title: "iSummation Technologies Pvt Ltd."
+                });
+            }
+        </script>
+    </body>
+</html>
